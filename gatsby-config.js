@@ -24,7 +24,7 @@ module.exports = {
         start_url: `/`,
         background_color: `#3b0215`,
         theme_color: `#3b0215`,
-        display: `minimal-ui`,
+        display: `standalone`,
         icon: `src/images/pitchpipe-icon.png`, // This path is relative to the root of the site.
       },
     },
