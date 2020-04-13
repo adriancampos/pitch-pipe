@@ -15,7 +15,7 @@ class ToneBtn extends React.Component {
       <button
         onPointerDown={() => this.props.onMouseDown()}
         onPointerUp={()=>this.props.onMouseUp()}
-        style={{width: "9ch",height: "9ch", "user-select": "none"}} // TODO: Export this to CSS
+        style={{"width": "100%", "height":"100%","user-select": "none"}} // TODO: Export this to CSS
         >
         {this.state.name}
       </button>

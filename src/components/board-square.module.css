@@ -1,0 +1,33 @@
+.container {
+
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.row {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    display: flex;
+    justify-content: stretch;
+
+    line-height: 30px;
+}
+
+.row .row-item {
+    flex: 1;
+    height: auto;
+}
+
+.row .row-item:before {
+    content: '';
+    float: left;
+    padding-top: 100%;
+}
+
+
+.row .spacer {
+    flex: 2;
+}
