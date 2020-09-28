@@ -19,8 +19,8 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Pitch Pipe`,
-        short_name: `PitchPipe`,
+        name: `Pitch, Please?`,
+        short_name: `Pitch Please`,
         start_url: `/`,
         background_color: `#3b0215`,
         theme_color: `#3b0215`,
