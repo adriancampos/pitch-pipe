@@ -1,0 +1,13 @@
+button.tonebutton {
+    background: var(--theme-color);
+    background: var(--theme-color-dark);
+    color: white;
+    font-family: 'Roboto', monospace;
+    font-weight: 900;
+    font-size: 1.5rem;
+    border: none;
+}
+
+button.tonebutton:focus {
+    outline: 0;
+}

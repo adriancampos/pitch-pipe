@@ -3,7 +3,8 @@
     margin: 0 auto;
     display: flex;
     flex-direction: column;
-
+    box-shadow: var(--card-shadow-5);
+    background-color: var(--theme-color-dark);
 }
 
 .row {

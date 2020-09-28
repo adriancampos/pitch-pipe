@@ -1,4 +1,5 @@
 import React from "react"
+import btnStyles from "./tonebutton.module.css"
 
 
 class ToneBtn extends React.Component {
@@ -12,7 +13,7 @@ class ToneBtn extends React.Component {
  
   render() {
     return (
-      <button
+      <button className={btnStyles.tonebutton}
         onTouchStart={(e) => {
           this.props.onMouseDown()
           e.preventDefault()
