@@ -13,9 +13,23 @@ class ToneBtn extends React.Component {
   render() {
     return (
       <button
-        onPointerDown={() => this.props.onMouseDown()}
-        onPointerUp={()=>this.props.onMouseUp()}
-        style={{"width": "100%", "height":"100%","user-select": "none"}} // TODO: Export this to CSS
+        onTouchStart={(e) => {
+          this.props.onMouseDown()
+          e.preventDefault()
+        }}
+        onPointerDown={(e) => {
+          this.props.onMouseDown()
+        }}
+        onPointerUp={()=>{
+          this.props.onMouseUp()}}
+        onTouchEnd={() => {
+          this.props.onMouseUp();
+        }}
+        onTouchCancel={() => {
+          this.props.onMouseUp();
+        }}       
+
+        style={{"width": "100%", "height":"100%","user-select": "none","touch-action":"none"}} // TODO: Export this to CSS
         >
         {this.state.name}
       </button>
