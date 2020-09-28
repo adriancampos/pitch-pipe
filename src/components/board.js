@@ -14,6 +14,7 @@ class Board extends React.Component {
 
   playTone(pitch) {
     // this.synth.current.stopAll(); // Ensures that if a note gets "stuck" it's overridden by the next one
+    this.synth.current.initAudioCtx();
     this.synth.current.playTone(pitch);
   }
 

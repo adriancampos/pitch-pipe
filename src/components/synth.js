@@ -8,13 +8,23 @@ class Synth extends React.Component {
   }
 
   componentDidMount() {
-    this.audioCtx = new window.AudioContext();
-    this.gainNode = this.audioCtx.createGain();    
-    this.gainNode.connect(this.audioCtx.destination);
     console.log("Synth mounted.");
   }
 
+  initAudioCtx() {
+    if (!this.audioCtx) {
+      this.audioCtx = new window.AudioContext();
+      this.gainNode = this.audioCtx.createGain();    
+      this.gainNode.connect(this.audioCtx.destination);
+      console.log("Synth initialized.")
+    }
+  }
+
   playTone(pitch) {
+    if (!this.audioCtx) {
+      throw new Error("Must call initAudioCtx before calling playTone.")
+    }
+
     var oscillator = this.audioCtx.createOscillator();
 
     oscillator.type = this.waveType; // TODO: get waveType working
