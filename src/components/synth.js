@@ -9,16 +9,21 @@ class Synth extends React.Component {
 
   componentDidMount() {
     this.audioCtx = new window.AudioContext();
+    this.gainNode = this.audioCtx.createGain();    
+    this.gainNode.connect(this.audioCtx.destination);
     console.log("Synth mounted.");
   }
 
   playTone(pitch) {
-    // TODO: I should nicely handle multiple tones together
     var oscillator = this.audioCtx.createOscillator();
-    oscillator.connect(this.audioCtx.destination);
 
     oscillator.type = this.waveType; // TODO: get waveType working
     oscillator.frequency.value = pitch;
+
+    // Ensure that the amplitudes never add above 1 by setting the gain of each to 1/(number of oscillators)
+    this.gainNode.gain.value = 1 / (this.playingTones.length + 1);
+    oscillator.connect(this.gainNode);
+
     oscillator.start(this.audioCtx.currentTime);
 
     this.playingTones.push({pitch : pitch, oscillator : oscillator});
@@ -33,6 +38,9 @@ class Synth extends React.Component {
         tone.oscillator.stop(this.audioCtx.currentTime);
       }
     })
+
+    // Removed stopped tones from the array
+    this.playingTones = this.playingTones.filter(tone => tone.pitch !== pitch);
   }
 
   stopAll() {
